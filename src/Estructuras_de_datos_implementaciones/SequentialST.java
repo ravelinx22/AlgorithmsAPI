@@ -5,6 +5,7 @@ import Estructuras_de_datos_interfaces.ISymbolTable;
 public class SequentialST <Key extends Comparable<Key>,Value> implements ISymbolTable<Key, Value> {
 	
 	private Node first;
+	private int N;
 	
 	public void put(Key k, Value v) {
 		
@@ -16,6 +17,7 @@ public class SequentialST <Key extends Comparable<Key>,Value> implements ISymbol
 		}
 		
 		first = new Node(k, v, first);
+		N++;
 	}
 	
 	public Value get(Key k) {
@@ -37,6 +39,32 @@ public class SequentialST <Key extends Comparable<Key>,Value> implements ISymbol
 				current.next = current.next.next;
 			}
 		}
+		
+		N--;
+	}
+	
+	public int size() {
+		return N;
+	}
+	
+	public boolean contains(Key k) {
+		if(k == null) return false;
+		
+		for(Node current = first; current != null; current = current.next)
+			if(current.key.equals(k))
+				return true;
+		
+		return false;
+	}
+	
+	public Iterable<Key> keys() {
+		LinkedList<Key> k = new LinkedList<Key>();
+		
+		for(Node current = first; current != null; current = current.next) {
+			k.add(current.key);
+		}
+		
+		return k;
 	}
 	
 	// Clases privadas

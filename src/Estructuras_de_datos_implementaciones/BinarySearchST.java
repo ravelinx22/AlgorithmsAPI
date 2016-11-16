@@ -69,6 +69,17 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> implements ISymb
 		return lo;
 	}
 	
+	public boolean contains(Key key) {
+		if(key == null) return false;
+		
+		for(Key k : keys) {
+			if(k.equals(key))
+				return true;
+		}
+		
+		return false;
+	}
+	
 	// Helpers
 	
 	public int size() {

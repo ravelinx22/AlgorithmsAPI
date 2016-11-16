@@ -14,6 +14,13 @@ public class LinearProbingHashST <Key extends Comparable<Key>, Value> implements
 		vals = (Value[]) new Object[M];
 	}
 	
+	@SuppressWarnings("unchecked")
+	public LinearProbingHashST(int max) {
+		M = max;
+		keys = (Key[]) new Comparable[M];
+		vals = (Value[]) new Object[M];
+	}
+	
 	public void put(Key key, Value value) {
 		if(N >= M/2) resize(2*M);
 		
@@ -68,7 +75,7 @@ public class LinearProbingHashST <Key extends Comparable<Key>, Value> implements
     // Helpers 
 	
 	public void resize(int size) {
-		  LinearProbingHashST<Key, Value> t = new LinearProbingHashST<Key, Value>();
+		  LinearProbingHashST<Key, Value> t = new LinearProbingHashST<Key, Value>(size);
 		  for(int i = 0; i < M; i++) {
 			  if(keys[i] != null)
 				  t.put(keys[i], vals[i]);
@@ -77,7 +84,6 @@ public class LinearProbingHashST <Key extends Comparable<Key>, Value> implements
 		  keys = t.keys;
 		  vals = t.vals;
 		  M = t.M;
-		  N = t.N;
 	}
 	
 	public boolean contains(Key key) {

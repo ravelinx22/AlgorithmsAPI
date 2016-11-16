@@ -1,9 +1,11 @@
 package Estructuras_de_datos_implementaciones;
 
+import java.util.Iterator;
+
 import Estructuras_de_datos_interfaces.ILinkedList;
 import Models.Node;
 
-public class LinkedList<Item> implements ILinkedList<Item> {
+public class LinkedList<Item> implements ILinkedList<Item>, Iterable<Item>{
 
 	private Node<Item> first;
 	private int N;
@@ -83,5 +85,29 @@ public class LinkedList<Item> implements ILinkedList<Item> {
 
 	public int size() {
 		return N;
+	}
+	
+	// Iterator
+	
+	public Iterator<Item> iterator() {
+		return new ListIterator();
+	}
+	
+	// Private classes
+	
+	private class ListIterator implements Iterator<Item> {
+		Node<Item> current = first;
+		
+		public boolean hasNext() {
+			return current != null;
+		}
+		
+		public Item next() {
+			Item item = current.getItem();
+			current = current.getNext();
+			return item;
+		}
+		
+		public void remove() {}
 	}
 }

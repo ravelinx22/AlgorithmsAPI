@@ -34,7 +34,7 @@ public class Queue<Item> implements IQueue<Item>, Iterable<Item> {
 	}
 	
 	public boolean isEmpty() {
-		return first != null;
+		return first == null;
 	}
 	
 	public int size() {

@@ -1,0 +1,31 @@
+package Estructuras_de_datos_implementaciones;
+
+/**
+ * Checks is an undirected graph has a cycle
+ * <pre>No self loops are in the graph<pre>
+ */
+public class Cycle {
+	private boolean[] marked;
+	
+	@SuppressWarnings("unused")
+	private boolean hasCycle;
+
+	public Cycle(Graph G) {
+		marked = new boolean[G.V()];
+		for(int s = 0; s < G.V(); s++)
+			if(!marked[s])
+				dfs(G,s,s);
+	}
+
+	private void dfs(Graph G, int v, int u) {
+		marked[v] = true;
+		for(int w : G.adj(v))
+			if(!marked[w])
+				dfs(G, w, v);
+			else if(w != u) hasCycle = true;
+	}
+
+	public boolean hasCycle() {
+		return hasCycle();
+	}
+}

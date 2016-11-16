@@ -3,7 +3,6 @@ import Estructuras_de_datos_interfaces.IHash;
 
 public class SeparateChainingHashST <Key extends Comparable<Key>, Value> implements IHash<Key, Value> {
 
-	private int N;
 	private int M;
 	private SequentialST<Key, Value>[] st;
 	
@@ -22,7 +21,6 @@ public class SeparateChainingHashST <Key extends Comparable<Key>, Value> impleme
 	
 	public void put(Key key, Value value) {
 		st[hash(key)].put(key, value);
-		N++;
 	}
 	
 	public Value get(Key key) {
@@ -31,7 +29,6 @@ public class SeparateChainingHashST <Key extends Comparable<Key>, Value> impleme
 	
 	public void delete(Key key) {
 		st[hash(key)].delete(key);
-		N--;
 	}
 	
 	public int hash(Key key) {

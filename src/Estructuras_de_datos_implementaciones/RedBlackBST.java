@@ -13,6 +13,8 @@ public class RedBlackBST <Key extends Comparable<Key>, Value> implements IRedBla
 	
 	private Node root;
 	
+	// Methods
+	
 	public void put(Key key, Value val) {
 		root = put(root, key, val);
 		root.color = BLACK;
