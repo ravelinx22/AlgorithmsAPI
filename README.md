@@ -18,7 +18,7 @@ List Of Data Structures
 - Stack
 - Red Black Binary Search Tree
 - Symbol Graph (Undirected Graph Algorithm)
-- Two Color (Undirected Graph Algorithm to find if it is unpartite)
+- Two Color (Undirected Graph algorithm to find if it is bipartite)
 - Separate Chaining Hash Symbol Table
 - Sequential Symbol Table
 
