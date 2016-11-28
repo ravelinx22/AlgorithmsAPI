@@ -1,7 +1,7 @@
 package Estructuras_de_datos_implementaciones;
-import Estructuras_de_datos_interfaces.IMinHeap;
+import Estructuras_de_datos_interfaces.IMinIndexHeap;
 
-public class MinHeap<Key extends Comparable<Key>> implements IMinHeap<Key> {
+public class IndexMinPQ<Key extends Comparable<Key>> implements IMinIndexHeap<Key> {
 
 	private int N = 0;
 	private int[] pq;
@@ -9,7 +9,7 @@ public class MinHeap<Key extends Comparable<Key>> implements IMinHeap<Key> {
 	private Key[] keys;
 	
 	@SuppressWarnings("unchecked")
-	public MinHeap(int maxN) {
+	public IndexMinPQ(int maxN) {
 		keys = (Key[]) new Comparable[maxN +1];
 		pq = new int[maxN+1];
 		qp = new int[maxN+1];
